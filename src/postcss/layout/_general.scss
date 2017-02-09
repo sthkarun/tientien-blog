@@ -1,0 +1,30 @@
+body {
+	min-width: 320px;
+	color: $gray;
+}
+
+.container {
+	@extend %clearfix;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+	border: none;
+}
+
+a,
+button,
+input[type="submit"] {
+	@include animate(border color background border opacity);
+	outline: none;
+}
+
+
+.resize-active  * {
+	transition: none !important; 
+}

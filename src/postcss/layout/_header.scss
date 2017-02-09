@@ -1,0 +1,184 @@
+#header {
+	@extend %clearfix;
+	position: relative;
+	z-index: 999;
+	padding: 20px 15px;
+
+	@include media('>=tablet') {
+		padding: 15px 15px 0;
+	}
+
+	@include media('>=desktop') {
+		padding: 24px 15px 0;
+	}
+
+	@include media('>=widescreen') {
+		padding: 24px 47px 0;
+	}
+}
+
+.logo {
+	float: left;
+	width: 180px;
+
+	@include media('>=tablet') {
+		width: 140px;
+	}
+
+	@include media('>=desktop') {
+		width: 207px;
+		margin-right: 10px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		max-width: none;
+	}
+}
+
+
+
+.icon-list {
+	@extend %listreset;
+	text-align: right;
+	padding: 0 26px 0 0;
+
+	@include media('>=tablet') {
+		padding: 0;
+		float: right;
+		width: 140px;
+	}
+
+	@include media('>=desktop') {
+		width: 167px;
+		@include font(18px,22px);
+		margin-left: 10px;
+	}
+
+
+
+	.text {
+		display: none;
+
+		@include media('>=tablet') {
+			display: inline;
+		}
+
+		@include media('>=desktop') {
+			letter-spacing: 1px;
+			margin-right: 9px;
+		}
+	}
+
+	li {
+		display:inline-block;
+		vertical-align: top;
+		@include font(20px,1);
+		padding: 0 2px;
+
+		@include media('>=desktop') {
+			font-size: 22px;
+			padding: 0;
+			margin-left: 22px;
+
+			&:first-child {
+				margin: 0;
+			}
+		}
+	}
+
+	a {
+		color: #2b7e3e;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+
+		.text {
+			color: $gray;
+
+			@include media('>=tablet') {
+				@include font(16px,20px);
+				display:inline-block;
+				vertical-align:top;
+			}
+		}
+	}
+}
+
+.search-form {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	max-height: 0;
+	overflow: hidden;
+	@include animate(max-height);
+
+	.search-active & {
+		max-height: 9999px;
+	}
+
+	.form-group {
+		padding: 20px;
+		z-index: 1;
+		position: relative;
+		transform: translateY(-100%);
+		@include animate(transform);
+		max-width: 972px;
+		margin: 0 auto;
+
+		&:before {
+			content: '';
+			top: 0;
+			bottom: 0;
+			left: -9999px;
+			right: -9999px;
+			background: rgba(255, 255, 255, 0.7);
+			z-index: -1;
+			position: absolute;
+		}
+
+		@include media('>=desktop') {
+			padding: 49px 15px;
+		}
+
+		.search-active & {
+			transform: translateY(0);
+		}
+	}
+	
+	input[type="search"],
+	input[type="text"]  {
+		height: 40px;
+		width: 100%;
+		background: #dedede;
+		padding: 5px 15px 5px 45px;
+		text-transform: uppercase;
+		max-width: 952px;
+		margin: 0 auto;
+
+		@include media('>=desktop') {
+			height: 66px;
+			padding: 8px 30px 8px 70px;
+		}
+	}
+
+	button {
+		color: $green;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 30px;
+		@include font(20px,1);
+		padding: 0;
+		margin: 0;
+		vertical-align: top;
+
+		@include media('>=desktop') {
+			font-size: 30px;
+		}
+	}
+}
