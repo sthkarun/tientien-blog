@@ -1,5 +1,50 @@
 h1 {
 	font-size: 72px;
-	text-align: center;
 	margin: 20px 0;
+}
+
+p {
+	margin: 0 0 15px;
+
+	@include media('>=desktop') {
+		margin: 0 0 19px;
+	}
+
+	.green {
+		color: #1a7d3f;
+		@include font(18px,22px);
+		letter-spacing: 1px;
+		padding: 17px 0  3px;
+		display: block;
+	}
+}
+
+blockquote {
+	padding: 25px 0;
+	margin: 0 auto 25px;
+	color: #54aa47;
+	@include font(18px,24px);
+	max-width: 600px;
+	position: relative;
+	text-align: center;
+	letter-spacing: 1px;
+
+	@include media('>=desktop') {
+		@include font(22px,30px);
+		margin: 0 0 51px;
+		padding: 31px 0;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		height: 3px;
+		max-width: 65px;
+		background: #54aa47;
+		width: 100%;
+	}
 }
